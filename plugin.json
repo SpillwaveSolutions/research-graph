@@ -1,0 +1,27 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "research-graph",
+  "version": "0.1.0",
+  "description": "Layer 1 projector: OKF research \u2192 Agent Brain (Chroma + BM25 + Kuzu). Owns no nouns.",
+  "author": {
+    "name": "Rick Hightower",
+    "url": "https://github.com/RichardHightower"
+  },
+  "homepage": "https://github.com/SpillwaveSolutions/research-graph",
+  "repository": "https://github.com/SpillwaveSolutions/research-graph",
+  "license": "MIT",
+  "keywords": [
+    "rkc",
+    "okf",
+    "research",
+    "second-brain",
+    "claude-code",
+    "grok-build",
+    "codex",
+    "cursor",
+    "agent-plugins",
+    "agent-brain",
+    "kuzu",
+    "chroma"
+  ]
+}

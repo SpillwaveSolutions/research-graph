@@ -1,0 +1,15 @@
+{
+  "name": "research-graph-marketplace",
+  "description": "Grok marketplace pin. Zero-config Claude layout.",
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "research-graph",
+      "source": ".",
+      "description": "Layer 1 projector for RKC. Owns no types.",
+      "version": "0.1.0",
+      "compatibility": {"claude_plugin": true, "zero_config": true},
+      "repository": "https://github.com/SpillwaveSolutions/research-graph"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "research-graph",
+  "version": "0.1.0",
+  "description": "Layer 1 projector for RKC on Cursor. Owns no types.",
+  "author": {"name": "Rick Hightower"},
+  "homepage": "https://github.com/SpillwaveSolutions/research-graph",
+  "repository": "https://github.com/SpillwaveSolutions/research-graph",
+  "license": "MIT",
+  "keywords": ["rkc", "okf", "cursor", "agent-brain"],
+  "skills": "skills/",
+  "rules": ".cursor/rules/",
+  "commands": "commands/",
+  "hooks": "./hooks/cursor-hooks.json"
+}

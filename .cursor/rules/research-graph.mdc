@@ -1,0 +1,6 @@
+---
+description: research-graph write rules
+globs: knowledge/research/**
+---
+
+research-graph owns **no** OKF types. Do not write ResearchArea, Subject, Claim, Evidence, Finding, or any RKC noun. Project accepted|reviewed only. GRAPH_USE_LLM_EXTRACTION=false. Citations come from OKF locators, never from Chroma/Kuzu blobs.

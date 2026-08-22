@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "research-graph-marketplace",
+  "owner": {
+    "name": "Rick Hightower",
+    "url": "https://github.com/RichardHightower"
+  },
+  "plugins": [
+    {
+      "name": "research-graph",
+      "source": "./",
+      "description": "Layer 1 projector for RKC. Owns no types.",
+      "version": "0.1.0"
+    }
+  ]
+}

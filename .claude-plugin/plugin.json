@@ -1,0 +1,10 @@
+{
+  "name": "research-graph",
+  "version": "0.1.0",
+  "description": "Layer 1 projector: OKF research → Agent Brain. Claude Code + Grok Build.",
+  "author": {"name": "Rick Hightower", "url": "https://github.com/RichardHightower"},
+  "homepage": "https://github.com/SpillwaveSolutions/research-graph",
+  "repository": "https://github.com/SpillwaveSolutions/research-graph",
+  "license": "MIT",
+  "keywords": ["rkc", "okf", "agent-brain", "kuzu", "chroma", "claude-code", "grok-build"]
+}
