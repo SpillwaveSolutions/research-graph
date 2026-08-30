@@ -1,5 +1,8 @@
 # research-graph
 
+**Version:** 0.1.1
+
+
 Layer 1 of the research second brain. Projects [RKC](https://github.com/SpillwaveSolutions/research-knowledge-capture) OKF into Agent Brain (Chroma + BM25 + Kuzu). **Owns no nouns.**
 
 ```

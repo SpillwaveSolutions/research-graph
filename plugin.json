@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "research-graph",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Layer 1 projector: OKF research \u2192 Agent Brain (Chroma + BM25 + Kuzu). Owns no nouns.",
   "author": {
     "name": "Rick Hightower",

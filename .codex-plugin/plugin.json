@@ -1,12 +1,20 @@
 {
   "name": "research-graph",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Layer 1 projector for RKC on Codex. Owns no types.",
-  "author": {"name": "Rick Hightower", "url": "https://github.com/RichardHightower"},
+  "author": {
+    "name": "Rick Hightower",
+    "url": "https://github.com/RichardHightower"
+  },
   "homepage": "https://github.com/SpillwaveSolutions/research-graph",
   "repository": "https://github.com/SpillwaveSolutions/research-graph",
   "license": "MIT",
-  "keywords": ["rkc", "okf", "codex", "agent-brain"],
+  "keywords": [
+    "rkc",
+    "okf",
+    "codex",
+    "agent-brain"
+  ],
   "skills": "./skills/",
   "hooks": "./hooks/codex-hooks.json"
 }
