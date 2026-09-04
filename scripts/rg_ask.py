@@ -23,6 +23,9 @@ def find_rg() -> str | None:
         found = shutil.which(override)
         if found:
             return found
+        # Explicit override that is not usable: fail closed. Do not fall
+        # through to PATH — operators and tests set this to disable rg.
+        return None
     return shutil.which("rg")
 
 
@@ -73,9 +76,26 @@ def try_rg(root: Path, question: str, *, limit: int = 10) -> dict:
     return {"engine": "rg", "hits": hits, "count": len(hits)}
 
 
+def find_rkc_pack() -> Path | None:
+    """Locate rkc_pack.py. Explicit override fail-closed; else sibling checkout."""
+    for var in ("RKC_PACK_PATH", "OKF_RKC_PACK"):
+        override = (os.environ.get(var) or "").strip()
+        if not override:
+            continue
+        p = Path(override)
+        return p if p.is_file() else None
+    sibling = (
+        Path(__file__).resolve().parent.parent.parent
+        / "research-knowledge-capture"
+        / "scripts"
+        / "rkc_pack.py"
+    )
+    return sibling if sibling.is_file() else None
+
+
 def try_pack(root: Path, root_id: str | None):
-    rkc = Path(__file__).resolve().parent.parent.parent / "research-knowledge-capture" / "scripts" / "rkc_pack.py"
-    if root_id and rkc.exists():
+    rkc = find_rkc_pack()
+    if root_id and rkc is not None:
         proc = subprocess.run(
             [sys.executable, str(rkc), root_id, "--root", str(root)],
             capture_output=True,

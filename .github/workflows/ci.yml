@@ -13,3 +13,5 @@ jobs:
           python-version: "3.12"
       - run: python3 -m py_compile scripts/rg_*.py
       - run: python3 tests/test_plugin.py
+      - run: python3 tests/test_ask.py
+      - run: python3 tests/test_project.py
