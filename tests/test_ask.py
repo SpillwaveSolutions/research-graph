@@ -30,6 +30,20 @@ class AskRgTests(unittest.TestCase):
             else:
                 os.environ["OKF_RG_PATH"] = env
 
+    def test_explicit_bad_override_does_not_fall_through_to_path(self):
+        """Invalid OKF_RG_PATH must not consult PATH (ripgrep may be installed)."""
+        from rg_ask import find_rg
+
+        env = os.environ.get("OKF_RG_PATH")
+        os.environ["OKF_RG_PATH"] = "/definitely/not/rg"
+        try:
+            self.assertIsNone(find_rg())
+        finally:
+            if env is None:
+                os.environ.pop("OKF_RG_PATH", None)
+            else:
+                os.environ["OKF_RG_PATH"] = env
+
     def test_hits_when_fake_rg_present(self):
         FAKE_RG.chmod(0o755)
         tmp = Path(tempfile.mkdtemp())
@@ -46,6 +60,38 @@ class AskRgTests(unittest.TestCase):
             self.assertGreaterEqual(out["count"], 1)
         finally:
             os.environ.pop("OKF_RG_PATH", None)
+            shutil.rmtree(tmp)
+
+
+class PackDiscoveryTests(unittest.TestCase):
+    def test_missing_override_is_none(self):
+        from rg_ask import find_rkc_pack
+
+        env = os.environ.get("RKC_PACK_PATH")
+        os.environ["RKC_PACK_PATH"] = "/definitely/not/rkc_pack.py"
+        try:
+            self.assertIsNone(find_rkc_pack())
+        finally:
+            if env is None:
+                os.environ.pop("RKC_PACK_PATH", None)
+            else:
+                os.environ["RKC_PACK_PATH"] = env
+
+    def test_override_file_is_used(self):
+        from rg_ask import find_rkc_pack
+
+        tmp = Path(tempfile.mkdtemp())
+        fake = tmp / "rkc_pack.py"
+        fake.write_text("# fake\n", encoding="utf-8")
+        env = os.environ.get("RKC_PACK_PATH")
+        os.environ["RKC_PACK_PATH"] = str(fake)
+        try:
+            self.assertEqual(find_rkc_pack(), fake)
+        finally:
+            if env is None:
+                os.environ.pop("RKC_PACK_PATH", None)
+            else:
+                os.environ["RKC_PACK_PATH"] = env
             shutil.rmtree(tmp)
 
 
